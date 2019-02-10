@@ -15,7 +15,7 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject[,] EnemyArray;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         EnemyArray = new GameObject[ColNum, RowNum];
         for (int i = 0; i < ColNum; i++)
@@ -23,18 +23,21 @@ public class EnemySpawnerScript : MonoBehaviour
             for (int j = 0; j < RowNum; j++)
             {
                 EnemyArray[i, j] = (GameObject)Instantiate(EnemyPrefab, new Vector3((i * SpacingOffset) + PosOffsetX, (j * SpacingOffset) + PosOffsetY, 0), Quaternion.identity);
+                EnemyScript EScript = EnemyArray[i, j].GetComponent<EnemyScript>();
                 if (j <= 1)
                 {
-                    EnemyArray[i, j].GetComponent<EnemyScript>().Points = 10;
+                    EScript.Points = 10;
                 }
                 else if (j <= 3)
                 {
-                    EnemyArray[i, j].GetComponent<EnemyScript>().Points = 20;
+                    EScript.Points = 20;
                 }
                 else
                 {
-                    EnemyArray[i, j].GetComponent<EnemyScript>().Points = 40;
+                    EScript.Points = 40;
                 }
+                EScript.arrPos = new int[] { i, j };
+
             }
         }
     }
