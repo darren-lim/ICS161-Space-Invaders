@@ -23,7 +23,7 @@ public class BulletLogic : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("DeadBox"))
+        if (collider.CompareTag("DeadBox") || collider.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
         }

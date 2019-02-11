@@ -82,7 +82,7 @@ public class EnemyScript : MonoBehaviour
         {
             eController.ChangeDirectionEvent(false);
         }
-        if(collision.gameObject.tag == "PlayerBullet")
+        if(collision.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
         }
