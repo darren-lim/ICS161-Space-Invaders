@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2132158677995975714}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,10 +123,15 @@ MonoBehaviour:
   Points: 0
   Speed: 0.8
   MovingRight: 1
+  hitRightWall: 0
   MoveDownOffset: 5
   WallChecker: 0
   Shooter: 0
   arrPos: 
+  eController: {fileID: 7878144640903555177, guid: 3833f0eaf21b69748af4118991ccaff2,
+    type: 3}
+  BulletPrefab: {fileID: 1280259519027479892, guid: 54a4d0358cded64488284ae99fde544f,
+    type: 3}
 --- !u!50 &2132158677995975714
 Rigidbody2D:
   serializedVersion: 4

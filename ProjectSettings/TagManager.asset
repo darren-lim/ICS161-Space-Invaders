@@ -9,6 +9,8 @@ TagManager:
   - EnemySpawner
   - Bullet
   - DeadBox
+  - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX

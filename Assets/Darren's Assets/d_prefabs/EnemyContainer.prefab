@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5075c5ac34315284b919062e571cccdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyFireList: []
+  ShootTimer: 0
+  RandTime: 0
+  RandEnemyNum: 0
 --- !u!114 &3219822423949530843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +67,4 @@ MonoBehaviour:
   SpacingOffset: 1.1
   PosOffsetX: -6
   PosOffsetY: 0.5
+  eController: {fileID: 0}

@@ -14,6 +14,8 @@ public class EnemySpawnerScript : MonoBehaviour
     public float PosOffsetY = 0.5f;
     public GameObject[,] EnemyArray;
 
+    public EnemyController eController;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,5 +42,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
             }
         }
+        eController = this.GetComponent<EnemyController>();
+        eController.EnemyObjectArray = EnemyArray;
     }
 }

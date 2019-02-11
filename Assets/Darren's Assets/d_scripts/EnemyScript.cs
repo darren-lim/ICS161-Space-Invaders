@@ -11,31 +11,30 @@ public class EnemyScript : MonoBehaviour
     public int Points;
     public float Speed = 2f;
     public bool MovingRight = true;
+    public bool hitRightWall = false;
     public float MoveDownOffset;
 
-    public bool WallChecker = false;
-    public bool Shooter = false;
     public int[] arrPos = new int[] { };
 
     //public UnityEvent hitWall;
-
-    public EnemySpawnerScript EnemyArrScript;
-    public GameObject[,] EArray;
+    public EnemyController eController;
+    public GameObject BulletPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         MoveDownOffset = 0.5f;
-        //EnemyArrScript = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawnerScript>();
-        //EArray = EnemyArrScript.EnemyArray;
-        /*
-         * implement later
-        if (hitWall == null)
-            hitWall = new UnityEvent();
+        eController = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemyController>();
         
-        hitWall.AddListener(ChangeDirection);
-        */
+    }
 
+    private void OnEnable()
+    {
+        EnemyController.HitWall += ChangeDirection;
+    }
+    private void OnDisable()
+    {
+        EnemyController.HitWall -= ChangeDirection;
     }
 
     // Update is called once per frame
@@ -55,62 +54,57 @@ public class EnemyScript : MonoBehaviour
     public void Shoot()
     {
         //instantiate bullet prefab at this enemy's location
+        GameObject bullet = (GameObject)Instantiate(BulletPrefab, transform.position, Quaternion.identity);
     }
 
-    public void ChangeDirection()
+    public void ChangeDirection(bool RightWall)
     {
         //if hit wall, move down some pixels and change direction
-        if (MovingRight)
-            MovingRight = false;
-        else
-            MovingRight = true;
-        transform.position = new Vector3(transform.position.x, transform.position.y - MoveDownOffset, 0);
-    }
-
-    public void GetEnemies(bool IsRightWall)
-    {
-        //only use in the ontrigger enter for hitting wall
-        for (int i = 0; i < 11; i++)
+        if (RightWall && MovingRight)
         {
-            for (int j = 0; j < 5; j++)
-            {
-                if (EArray[i, j] == null)
-                    continue;
-                else
-                {
-                    EnemyScript enemy = EArray[i, j].GetComponent<EnemyScript>();
-                    if (IsRightWall)
-                    {
-                        if (enemy.MovingRight)
-                        {
-                            enemy.ChangeDirection();
-                        }
-                    }
-                    else
-                    {
-                        if (!enemy.MovingRight)
-                        {
-                            enemy.ChangeDirection();
-                        }
-                    }
-                }
-                    //hitWall.Invoke();
-            }
+            MovingRight = false;
+            transform.position = new Vector3(transform.position.x, transform.position.y - MoveDownOffset, 0);
+        }
+        else if (!RightWall && !MovingRight)
+        {
+            MovingRight = true;
+            transform.position = new Vector3(transform.position.x, transform.position.y - MoveDownOffset, 0);
         }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyArrScript = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawnerScript>();
-        EArray = EnemyArrScript.EnemyArray;
         //using unity event
         if (collision.gameObject.tag == "RightWall")
         {
-            GetEnemies(true);
+            eController.ChangeDirectionEvent(true);
         }
         if(collision.gameObject.tag == "LeftWall")
         {
-            GetEnemies(false);
+            eController.ChangeDirectionEvent(false);
+        }
+        if(collision.gameObject.tag == "PlayerBullet")
+        {
+            Destroy(this.gameObject);
+        }
+        if(collision.gameObject.tag == "Player")
+        {
+            //GAME OVER
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (arrPos[1] <= 1)
+        {
+            //give 10 points
+        }
+        else if (arrPos[1] <= 3)
+        {
+            //give 20 points
+        }
+        else if (arrPos[1] == 4)
+        {
+            //give 40 points
         }
     }
 }
