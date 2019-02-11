@@ -84,6 +84,8 @@ public class EnemyScript : MonoBehaviour
         }
         if(collision.gameObject.tag == "Bullet")
         {
+            ScoreScript sScript = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreScript>();
+            sScript.AddScore(Points);
             Destroy(this.gameObject);
         }
         if(collision.gameObject.tag == "Player")
@@ -91,20 +93,11 @@ public class EnemyScript : MonoBehaviour
             //GAME OVER
         }
     }
-
+    /*
     private void OnDestroy()
     {
-        if (arrPos[1] <= 1)
-        {
-            //give 10 points
-        }
-        else if (arrPos[1] <= 3)
-        {
-            //give 20 points
-        }
-        else if (arrPos[1] == 4)
-        {
-            //give 40 points
-        }
+        ScoreScript sScript = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreScript>();
+        sScript.AddScore(Points);
     }
+    */
 }

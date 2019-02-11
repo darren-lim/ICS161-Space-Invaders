@@ -11,6 +11,8 @@ TagManager:
   - DeadBox
   - Wall
   - Enemy
+  - ScoreUI
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
