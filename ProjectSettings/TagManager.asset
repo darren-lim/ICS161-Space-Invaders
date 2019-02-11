@@ -7,6 +7,8 @@ TagManager:
   - RightWall
   - LeftWall
   - EnemySpawner
+  - Bullet
+  - DeadBox
   layers:
   - Default
   - TransparentFX
