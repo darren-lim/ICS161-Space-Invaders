@@ -11,6 +11,7 @@ public class ShipLogic : MonoBehaviour
     [SerializeField] protected float player_speed = 4;
     private float bullet_speed = 6;
     public GameObject ShipBulletPrefab;
+    public static int lives = 3;
     public static bool No_Bullet = true;
 
     private void Awake()
@@ -48,12 +49,4 @@ public class ShipLogic : MonoBehaviour
         Physics2D.IgnoreCollision(ship_collider, newBullet.GetComponent<Collider2D>());
     }
 
-    //private bool No_Bullets()
-    //{
-        //if (newBullet.activeInHierarchy == false)
-        //{
-            //return true;
-        //}
-        //return false;
-    //}
 }
