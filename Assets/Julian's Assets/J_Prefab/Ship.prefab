@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6581534369705915092}
   - component: {fileID: 6581534369705915093}
   - component: {fileID: 6581534369705915090}
+  - component: {fileID: 1496160330}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -144,3 +145,29 @@ MonoBehaviour:
   player_speed: 4
   ShipBulletPrefab: {fileID: 2862931444190069808, guid: 6bcc2bb5f0c359041bfc446d939f5675,
     type: 3}
+--- !u!61 &1496160330
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581534369705915097}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.07582976}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.44117647}
+    newSize: {x: 1, y: 0.44117647}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.28951696}
+  m_EdgeRadius: 0
