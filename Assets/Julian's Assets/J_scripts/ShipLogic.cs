@@ -49,4 +49,6 @@ public class ShipLogic : MonoBehaviour
         Physics2D.IgnoreCollision(ship_collider, newBullet.GetComponent<Collider2D>());
     }
 
+
+
 }
