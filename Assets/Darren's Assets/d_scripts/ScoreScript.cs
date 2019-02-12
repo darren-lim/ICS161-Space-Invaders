@@ -7,6 +7,8 @@ public class ScoreScript : MonoBehaviour
 {
     public TextMeshProUGUI ScoreText;
     public int Score;
+
+    public TextMeshProUGUI HealthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +16,13 @@ public class ScoreScript : MonoBehaviour
         Score = 0;
         ScoreText.text = "Score: " + Score;
     }
-    /*
+    
     // Update is called once per frame
     void Update()
     {
-        
+        HealthText.text = ShipLogic.lives.ToString();
     }
-    */
+    
     public void AddScore(int points)
     {
         Score += points;

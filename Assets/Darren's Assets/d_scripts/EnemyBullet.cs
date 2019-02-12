@@ -30,6 +30,7 @@ public class EnemyBullet : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             //decrement player health? or do in player script
+            ShipLogic.lives -= 1;
             Destroy(this.gameObject);
         }
     }
