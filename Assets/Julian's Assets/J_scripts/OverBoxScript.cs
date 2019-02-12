@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverScript : MonoBehaviour
+public class OverBoxScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,9 +13,14 @@ public class GameOverScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ShipLogic.lives == 0)
-        {
+        
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            ShipLogic.lives = 0;
         }
     }
 }
