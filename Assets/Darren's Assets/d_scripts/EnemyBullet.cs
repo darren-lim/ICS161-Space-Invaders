@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
             //decrement player health? or do in player script
             if (ShipLogic.lives > 0)
             {
-                ShipLogic.lives -= 1;
+                ShipLogic.lives--;
             }
             Destroy(this.gameObject);
 
