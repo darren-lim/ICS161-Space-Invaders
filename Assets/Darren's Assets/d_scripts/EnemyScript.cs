@@ -95,14 +95,9 @@ public class EnemyScript : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
-        if(collision.gameObject.tag == "Player")
-        {
-            //GAME OVER
-            SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
-            sManager.GameOver(false);
-        }
         if(collision.gameObject.tag == "BottomWall")
         {
+            //GAME OVER
             SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
             sManager.GameOver(false);
         }

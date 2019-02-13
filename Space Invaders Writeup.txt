@@ -27,20 +27,19 @@ the random number index is chosen to shoot the bullet. When a bullet hits an ene
 to the score.
 
 GAME OVER:
-For a game over senario there is a special trigger very slightly under the player to recognize if the enemies had reached
+For a game over senario there is a special trigger very slightly above the player to recognize if the enemies had reached
 the bottom of the screen. Code would trigger a game over if the static lives variable would reach 0. The number of enemies
 are stored into a variable. When the number of enemies are 0, or all enemies are dead, the game
-over screen will trigger. The game over will also trigger when an enemy hits the player. When this state
-is reached the player is given the option to play again or quit with buttons for each option, and your final score is
-desplayed.
+over screen will trigger. When this state of game over is reached, the player is given the option to play again or quit with buttons 
+for each option, and your final score is displayed.
 
 UI:
-For our UI we used Text Mesh pro to desplay text. Text is desplayed at on the top right and top left for lives and score 
+For our UI we used Text Mesh pro to desplay text. Text is displayed at on the top right and top left for lives and score 
 respectivly in the game scene. There is also a start screen that allows a player to enter the game or quit.
 Menus also appear for win and death senarios.
 
 WINNING:
-The player wins when all enemies are dead. For a win a game over is triggered and your final score is desplayed, 
+The player wins when all enemies are dead. For a win a game over is triggered and your final score is displayed, 
 much like the game over if you die. When restarting the game the same scene is reloaded and you start from the beginning. 
 
 EXTRA CREDIT:
