@@ -1,0 +1,32 @@
+Names of Team Members:
+
+Darren Lim ()
+
+Julian Sollozo (35628515)
+
+Daniel Alcala()
+
+Requirement Description:
+
+The Player used a basic sprite and used movement modification on the rigidbody velocity for movement.
+We used a special bullet object that would modifiy a static variable in the player logic code to prevent
+more than one bullet being active at one time. If a player would miss there would be a trigger above the 
+play area in order to destroy stray bullets. The player logic code also has a static varible live counter to account
+for death of the player.
+
+For a game over senario there is a special trigger very slightly above the player to recognize if the enemies had reached
+the bottom of the screen. Code would also trigger a game over if the static lives variable would reach 0. When this state
+is reached the player is given the option to play again or quit with buttons for each option, and your final score is
+desplayed.
+
+For our UI we used Text Mesh pro to desplay text. Text is desplayed at on the top right and top left for lives and score
+respectivly. There is also a start screen that allows a player to enter the game or quit. Menus also appear for win and death senarios. 
+
+For a win a game over is triggered and your final score is desplayed, much like the game over if you die.
+When restarting the game the same scene is reloaded and you start from the beginning. 
+
+EXTRA CREDIT:
+
+A pause menu was implamented using Time.timeScale. A resume button and a quit button are shown on the pop up menu
+
+
