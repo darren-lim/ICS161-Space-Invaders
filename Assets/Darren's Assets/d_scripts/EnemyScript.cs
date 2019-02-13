@@ -78,7 +78,7 @@ public class EnemyScript : MonoBehaviour
         {
             eController.ChangeDirectionEvent(true);
         }
-        if(collision.gameObject.tag == "LeftWall")
+        else if(collision.gameObject.tag == "LeftWall")
         {
             eController.ChangeDirectionEvent(false);
         }
@@ -86,11 +86,25 @@ public class EnemyScript : MonoBehaviour
         {
             ScoreScript sScript = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreScript>();
             sScript.AddScore(Points);
+            //ScoreScript.Score++;
+            EnemySpawnerScript.EnemyCount--;
+            if(EnemySpawnerScript.EnemyCount == 0)
+            {
+                SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+                sManager.GameOver();
+            }
             Destroy(this.gameObject);
         }
         if(collision.gameObject.tag == "Player")
         {
             //GAME OVER
+            SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+            sManager.GameOver();
+        }
+        if(collision.gameObject.tag == "BottomWall")
+        {
+            SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+            sManager.GameOver();
         }
     }
     /*

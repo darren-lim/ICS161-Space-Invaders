@@ -18,6 +18,7 @@ public class ShipLogic : MonoBehaviour
     {
         ship_rigidbody = this.GetComponent<Rigidbody2D>();
         ship_collider = this.GetComponent<Collider2D>();
+        lives = 3;
     }
 
     void Start()

@@ -15,10 +15,12 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject[,] EnemyArray;
 
     public EnemyController eController;
+    public static int EnemyCount;
 
     // Start is called before the first frame update
     void Awake()
     {
+        EnemyCount = 0;
         EnemyArray = new GameObject[ColNum, RowNum];
         for (int i = 0; i < ColNum; i++)
         {
@@ -39,7 +41,7 @@ public class EnemySpawnerScript : MonoBehaviour
                     EScript.Points = 40;
                 }
                 EScript.arrPos = new int[] { i, j };
-
+                EnemyCount++;
             }
         }
         eController = this.GetComponent<EnemyController>();

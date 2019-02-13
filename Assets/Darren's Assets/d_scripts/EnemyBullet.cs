@@ -33,6 +33,11 @@ public class EnemyBullet : MonoBehaviour
             if (ShipLogic.lives > 0)
             {
                 ShipLogic.lives--;
+                if(ShipLogic.lives == 0)
+                {
+                    SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+                    sManager.GameOver();
+                }
             }
             Destroy(this.gameObject);
 
