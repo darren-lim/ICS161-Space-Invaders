@@ -11,6 +11,7 @@ public class SceneManagerScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Canvas PauseCanvas;
     public bool paused;
+    public TextMeshProUGUI gameOverText;
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +58,18 @@ public class SceneManagerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void GameOver()
+    public void GameOver(bool win)
     {
         Time.timeScale = 0;
         GameOverCanvas.gameObject.SetActive(true);
+        if (win)
+        {
+            gameOverText.text = "You Win";
+        }
+        else
+        {
+            gameOverText.text = "Game Over";
+        }
         scoreText.text = "Final Score: " + ScoreScript.Score.ToString();
     }
 }

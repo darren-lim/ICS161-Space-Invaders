@@ -88,10 +88,10 @@ public class EnemyScript : MonoBehaviour
             sScript.AddScore(Points);
             //ScoreScript.Score++;
             EnemySpawnerScript.EnemyCount--;
-            if(EnemySpawnerScript.EnemyCount == 0)
+            if(EnemySpawnerScript.EnemyCount <= 0)
             {
                 SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
-                sManager.GameOver();
+                sManager.GameOver(true);
             }
             Destroy(this.gameObject);
         }
@@ -99,12 +99,12 @@ public class EnemyScript : MonoBehaviour
         {
             //GAME OVER
             SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
-            sManager.GameOver();
+            sManager.GameOver(false);
         }
         if(collision.gameObject.tag == "BottomWall")
         {
             SceneManagerScript sManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
-            sManager.GameOver();
+            sManager.GameOver(false);
         }
     }
     /*

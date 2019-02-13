@@ -1,6 +1,6 @@
 Names of Team Members:
 
-Darren Lim ()
+Darren Lim (24233004)
 
 Julian Sollozo (35628515)
 
@@ -8,25 +8,44 @@ Daniel Alcala()
 
 Requirement Description:
 
+PLAYER:
 The Player used a basic sprite and used movement modification on the rigidbody velocity for movement.
 We used a special bullet object that would modifiy a static variable in the player logic code to prevent
 more than one bullet being active at one time. If a player would miss there would be a trigger above the 
-play area in order to destroy stray bullets. The player logic code also has a static varible live counter to account
+play area in order to destroy stray bullets. The player logic code also has a static varible lives counter to account
 for death of the player.
 
-For a game over senario there is a special trigger very slightly above the player to recognize if the enemies had reached
-the bottom of the screen. Code would also trigger a game over if the static lives variable would reach 0. When this state
+ENEMIES:
+The enemies are implemented with three scripts: an enemy spawner, an enemy controller, and enemy script.
+Enemies are spawned in an 11x5 grid and stored into a 2d array. The enemies themselves have a script that
+allows them to move from right to left or left to right. There are box colliders on either side of the screen
+that triggers an event in the enemy. The event is sent to all enemies with listeners to change direction and
+move down towards the player because the wall was hit. The enemies shoot from the lowest enemy. This was implemented
+using a simple script that traversed through the 2d array from the bottom of the column (lowest enemy) and storing the
+enemy if it exists (not null in the 2d array) into a list. Then a random number is chosen and the enemy in the list with
+the random number index is chosen to shoot the bullet. When a bullet hits an enemy, the enemy is destroyed and adds points
+to the score.
+
+GAME OVER:
+For a game over senario there is a special trigger very slightly under the player to recognize if the enemies had reached
+the bottom of the screen. Code would trigger a game over if the static lives variable would reach 0. The number of enemies
+are stored into a variable. When the number of enemies are 0, or all enemies are dead, the game
+over screen will trigger. The game over will also trigger when an enemy hits the player. When this state
 is reached the player is given the option to play again or quit with buttons for each option, and your final score is
 desplayed.
 
-For our UI we used Text Mesh pro to desplay text. Text is desplayed at on the top right and top left for lives and score
-respectivly. There is also a start screen that allows a player to enter the game or quit. Menus also appear for win and death senarios. 
+UI:
+For our UI we used Text Mesh pro to desplay text. Text is desplayed at on the top right and top left for lives and score 
+respectivly in the game scene. There is also a start screen that allows a player to enter the game or quit.
+Menus also appear for win and death senarios.
 
-For a win a game over is triggered and your final score is desplayed, much like the game over if you die.
-When restarting the game the same scene is reloaded and you start from the beginning. 
+WINNING:
+The player wins when all enemies are dead. For a win a game over is triggered and your final score is desplayed, 
+much like the game over if you die. When restarting the game the same scene is reloaded and you start from the beginning. 
 
 EXTRA CREDIT:
-
-A pause menu was implamented using Time.timeScale. A resume button and a quit button are shown on the pop up menu
+Pause Menu:
+A pause menu was implamented when hitting escape during play using Time.timeScale. 
+A resume button and a quit button are shown on the pop up menu
 
 
