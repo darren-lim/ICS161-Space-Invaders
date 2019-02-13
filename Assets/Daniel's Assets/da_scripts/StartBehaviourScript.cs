@@ -16,7 +16,7 @@ public class StartBehaviourScript : MonoBehaviour
  
     public void StartGame()
 	{
-		SceneManager.LoadScene("MainTestScene");
+		SceneManager.LoadScene("MainScene");
 	}
 
 	public void QuitGame()
